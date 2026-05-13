@@ -18,4 +18,5 @@ clean-targets:
 
 models:
   dbt_training:
-    example:
+    staging:
+      +materialized: table
