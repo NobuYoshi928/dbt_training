@@ -20,3 +20,4 @@ models:
   dbt_training:
     staging:
       +materialized: table
+      +schema: staging
