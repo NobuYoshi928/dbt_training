@@ -1,0 +1,66 @@
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/dbt_cache/
+postgres/
+.parsed_classifiers.msgpack
+
+# Credentials and environment variables
+dbt/profiles.yml
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Python
+venv/
+env/
+ENV/
+.venv
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+*.egg
+
+# Virtual environments
+myvenv/
+.python-version
+
+# OS
+Thumbs.db
+desktop.ini
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing
+.coverage
+htmlcov/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDEs
+*.sublime-project
+*.sublime-workspace
+
+# Node (if using any node-based tools)
+node_modules/

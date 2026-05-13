@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: dbt_user
+      POSTGRES_PASSWORD: dbt_password
+      POSTGRES_DB: dbt_training
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dbt_user -d dbt_training"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  dbt:
+    build:
+      context: .
+      dockerfile: dbt/Dockerfile
+    container_name: dbt_runner
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DBT_PROFILES_DIR: /home/dbt
+      DBT_USER: dbt_user
+      DBT_PASSWORD: dbt_password
+      DBT_HOST: postgres
+      DBT_PORT: 5432
+      DBT_DATABASE: dbt_training
+      DBT_SCHEMA: raw
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/workspace
+      - ./dbt/dbt_cache:/home/dbt/.dbt
+      - ./dbt/profiles.yml:/home/dbt/profiles.yml
+    working_dir: /workspace/dbt
+    command: tail -f /dev/null

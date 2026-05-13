@@ -1,0 +1,10 @@
+#!/bin/bash
+# Execute SQL query on PostgreSQL database
+
+if [ -z "$1" ]; then
+  echo "Usage: bash bin/execute_query \"SQL_QUERY\""
+  echo "Example: bash bin/execute_query \"SELECT * FROM sample_data;\""
+  exit 1
+fi
+
+docker-compose exec postgres psql -U dbt_user -d dbt_training -c "$1"

@@ -1,0 +1,19 @@
+product_id,product_name,category,amazon_sku,rakuten_item_code
+PRD-001,Wireless Mouse,Electronics,AMZ-SKU-001,RAK-ITM-11
+PRD-002,USB-C Hub,Electronics,AMZ-SKU-007,RAK-ITM-77
+PRD-003,Office Chair,Furniture,AMZ-SKU-012,RAK-ITM-02
+PRD-004,Webcam HD,Electronics,AMZ-SKU-004,RAK-ITM-18
+PRD-005,Standing Desk,Furniture,AMZ-SKU-030,RAK-ITM-90
+PRD-006,Mechanical Keyboard,Electronics,AMZ-SKU-002,RAK-ITM-12
+PRD-007,Label Printer,Office Supplies,AMZ-SKU-040,RAK-ITM-31
+PRD-008,Air Purifier,Home Appliance,AMZ-SKU-021,RAK-ITM-45
+PRD-009,Barcode Scanner,Retail Equipment,AMZ-SKU-015,RAK-ITM-56
+PRD-010,Receipt Printer,Retail Equipment,AMZ-SKU-011,RAK-ITM-61
+PRD-011,Coffee Machine,Home Appliance,AMZ-SKU-009,RAK-ITM-68
+PRD-012,Mini Fridge,Home Appliance,AMZ-SKU-018,RAK-ITM-73
+PRD-013,Document Scanner,Office Supplies,AMZ-SKU-026,RAK-ITM-85
+PRD-014,Industrial Tablet,Electronics,AMZ-SKU-033,RAK-ITM-93
+PRD-015,Mobile Router,Electronics,AMZ-SKU-013,RAK-ITM-36
+PRD-016,Packing Tape,Office Supplies,AMZ-SKU-008,RAK-ITM-29
+PRD-017,Thermal Paper,Office Supplies,AMZ-SKU-019,RAK-ITM-41
+PRD-018,Projector 4K,Electronics,AMZ-SKU-050,RAK-ITM-99
