@@ -20,3 +20,7 @@ models:
   dbt_training:
     staging:
       +materialized: table
+
+vars:
+  dbt_training:
+    payment_method: 'BankTransfer'
