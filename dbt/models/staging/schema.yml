@@ -1,0 +1,121 @@
+version: 2
+
+models:
+  - name: product_master
+    description: "共通商品マスタ"
+    columns:
+      - name: product_id
+        description: "商品ID"
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: "商品名"
+        tests:
+          - not_null
+      - name: category
+        description: "カテゴリ"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Electronics', 'Furniture', 'Office Supplies', 'Home Appliance', 'Retail Equipment']
+      - name: amazon_sku
+        description: "Amazonの商品コード"
+        tests:
+          - not_null
+          - unique
+      - name: rakuten_item_code
+        description: "楽天の商品コード"
+        tests:
+          - not_null
+          - unique
+
+  - name: amazon_order_details
+    description: "Amazonの注文明細データ（staging）"
+    columns:
+      - name: amazon_order_id
+        description: "Amazon注文ID"
+        tests:
+          - not_null
+      - name: ordered_at
+        description: "注文日時（JST）"
+        tests:
+          - not_null
+      - name: buyer_email_hash
+        description: "購入者メールアドレスのハッシュ値"
+        tests:
+          - not_null
+      - name: sku
+        description: "Amazon SKU"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('product_master')
+              field: amazon_sku
+      - name: product_name
+        description: "商品名"
+      - name: qty
+        description: "数量"
+        tests:
+          - not_null
+      - name: item_price_jpy
+        description: "商品単価（円）"
+      - name: payment_method
+        description: "支払い方法"
+      - name: fulfillment_channel
+        description: "出荷チャネル（FBA/MFN）"
+      - name: prefecture
+        description: "都道府県名"
+      - name: ship_postal_code
+        description: "郵便番号"
+      - name: order_status
+        description: "注文ステータス"
+      - name: last_updated_at
+        description: "最終更新日時"
+
+  - name: rakuten_order_items
+    description: "楽天の注文明細データ（staging）"
+    columns:
+      - name: rakuten_order_no
+        description: "楽天注文番号"
+        tests:
+          - not_null
+      - name: ordered_at
+        description: "注文日（JST）"
+        tests:
+          - not_null
+      - name: member_id
+        description: "楽天会員ID"
+      - name: item_code
+        description: "楽天商品コード"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('product_master')
+              field: rakuten_item_code
+      - name: item_title
+        description: "商品名"
+      - name: unit_price
+        description: "商品単価（円）"
+      - name: quantity
+        description: "数量"
+      - name: shipping_cost
+        description: "送料（円）"
+      - name: coupon_points_used
+        description: "クーポン/ポイント使用額（円）"
+      - name: payment_type
+        description: "支払い方法"
+      - name: delivery_type
+        description: "配送方法"
+      - name: prefecture
+        description: "都道府県名"
+      - name: address_zip
+        description: "郵便番号"
+      - name: order_state
+        description: "注文ステータス"
+      - name: settlement_amount
+        description: "決済金額（円）"
+      - name: updated_at
+        description: "最終更新日時"
+      - name: email_hash
+        description: "購入者メールアドレスのハッシュ値"
