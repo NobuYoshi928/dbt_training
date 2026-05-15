@@ -32,6 +32,10 @@ models:
 
   - name: amazon_order_details
     description: "Amazonの注文明細データ（staging）"
+    tests:
+      - unique_composite_key_2:
+          column_1: amazon_order_id
+          column_2: sku
     columns:
       - name: amazon_order_id
         description: "Amazon注文ID"
@@ -58,8 +62,11 @@ models:
         description: "数量"
         tests:
           - not_null
+          - not_negative
       - name: item_price_jpy
         description: "商品単価（円）"
+        tests:
+          - not_negative
       - name: payment_method
         description: "支払い方法"
       - name: fulfillment_channel
@@ -75,6 +82,10 @@ models:
 
   - name: rakuten_order_items
     description: "楽天の注文明細データ（staging）"
+    tests:
+      - unique_composite_key_2:
+          column_1: rakuten_order_no
+          column_2: item_code
     columns:
       - name: rakuten_order_no
         description: "楽天注文番号"
@@ -97,12 +108,20 @@ models:
         description: "商品名"
       - name: unit_price
         description: "商品単価（円）"
+        tests:
+          - not_negative
       - name: quantity
         description: "数量"
+        tests:
+          - not_negative
       - name: shipping_cost
         description: "送料（円）"
+        tests:
+          - not_negative
       - name: coupon_points_used
         description: "クーポン/ポイント使用額（円）"
+        tests:
+          - not_negative
       - name: payment_type
         description: "支払い方法"
       - name: delivery_type
@@ -115,6 +134,8 @@ models:
         description: "注文ステータス"
       - name: settlement_amount
         description: "決済金額（円）"
+        tests:
+          - not_negative
       - name: updated_at
         description: "最終更新日時"
       - name: email_hash
