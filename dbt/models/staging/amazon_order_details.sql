@@ -10,7 +10,7 @@ SELECT
     item_price_jpy,
     payment_method,
     fulfillment_channel,
-    prefecture,
+    {{ prefecture_name_to_code('prefecture') }} as prefecture_code,
     ship_postal_code,
     order_status,
     last_updated_at

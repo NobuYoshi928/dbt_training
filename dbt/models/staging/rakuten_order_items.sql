@@ -12,7 +12,7 @@ SELECT
     CAST(REPLACE(coupon_points_used, ',', '') AS NUMERIC(10, 0)) AS coupon_points_used,
     payment_type,
     delivery_type,
-    prefecture,
+    {{ prefecture_name_to_code('prefecture') }} as prefecture_code,
     address_zip,
     order_state,
     -- settlement_amount: "JPY 5,390" 形式から数値抽出

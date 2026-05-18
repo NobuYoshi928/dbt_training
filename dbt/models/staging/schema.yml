@@ -83,8 +83,8 @@ models:
         description: "支払い方法"
       - name: fulfillment_channel
         description: "出荷チャネル（FBA/MFN）"
-      - name: prefecture
-        description: "都道府県名"
+      - name: prefecture_code
+        description: "都道府県コード"
       - name: ship_postal_code
         description: "郵便番号"
       - name: order_status
@@ -138,8 +138,8 @@ models:
         description: "支払い方法"
       - name: delivery_type
         description: "配送方法"
-      - name: prefecture
-        description: "都道府県名"
+      - name: prefecture_code
+        description: "都道府県コード"
       - name: address_zip
         description: "郵便番号"
       - name: order_state
