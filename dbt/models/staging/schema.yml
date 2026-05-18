@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: product_master
-    description: "共通商品マスタ"
+    description: "{{ doc('product_master') }}"
     columns:
       - name: product_id
         description: "商品ID"
