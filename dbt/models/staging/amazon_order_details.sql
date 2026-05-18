@@ -14,4 +14,4 @@ SELECT
     ship_postal_code,
     order_status,
     last_updated_at
-FROM "raw"."amazon_orders_details"
+FROM {{ source('raw', 'amazon_orders_details') }}

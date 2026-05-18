@@ -1,5 +1,13 @@
 version: 2
 
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: amazon_orders_details
+      - name: rakuten_orders_items
+      - name: product_master
+
 models:
   - name: product_master
     description: "{{ doc('product_master') }}"

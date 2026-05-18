@@ -21,4 +21,4 @@ SELECT
     TO_TIMESTAMP(updated_on, 'YYYY/MM/DD HH24:MI')::timestamp AS updated_at,
     -- PII対応: メールアドレスをハッシュ化
     md5(email) AS email_hash
-FROM "raw"."rakuten_orders_items"
+FROM {{ source('raw', 'rakuten_orders_items') }}
